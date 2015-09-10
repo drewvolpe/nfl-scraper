@@ -40,7 +40,7 @@ def get_standings_dict():
 
 
 def get_moneyline_rows():
-    html = urllib.urlopen(covers_moneyline_url).read()
+    html = urllib.urlopen(covers_moneyline_url).read().decode('utf8')
     soup = BeautifulSoup(html)
 
     moneyline_trs = soup.find_all('tr', 'bg_row')
