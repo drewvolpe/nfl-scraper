@@ -6,7 +6,7 @@ import re
 import urllib
 
 covers_moneyline_url = 'http://www.covers.com/odds/football/nfl-moneyline-odds.aspx'
-covers_standings_url = 'http://www.covers.com/pageLoader/pageLoader.aspx?page=/data/nfl/standings/2013-2014/reg/league/standings.html'
+covers_standings_url = 'http://www.covers.com/pageLoader/pageLoader.aspx?page=/data/nfl/standings/2014-2015/reg/league/standings.html'
 
 
 def node_to_int(node):
@@ -24,7 +24,7 @@ def normalize_team_name(team):
 def get_standings_dict():
     standings_dict = {}
     html = urllib.urlopen(covers_standings_url).read()
-    soup = BeautifulSoup(html)
+    soup = BeautifulSoup(html, "html.parser")
     trs = soup.find_all('tr')
     for tr in trs:
         td_team = tr.find('td', 'datacell')
@@ -41,7 +41,7 @@ def get_standings_dict():
 
 def get_moneyline_rows():
     html = urllib.urlopen(covers_moneyline_url).read().decode('utf8')
-    soup = BeautifulSoup(html)
+    soup = BeautifulSoup(html, "html.parser")
 
     moneyline_trs = soup.find_all('tr', 'bg_row')
 
