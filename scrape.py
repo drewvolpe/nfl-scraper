@@ -6,7 +6,7 @@ import re
 import urllib
 
 covers_moneyline_url = 'http://www.covers.com/odds/football/nfl-moneyline-odds.aspx'
-covers_standings_url = 'http://www.covers.com/pageLoader/pageLoader.aspx?page=/data/nfl/standings/2014-2015/reg/league/standings.html'
+covers_standings_url = 'http://www.covers.com/pageLoader/pageLoader.aspx?page=/data/nfl/standings/2015-2016/reg/league/standings.html'
 
 
 def node_to_int(node):
